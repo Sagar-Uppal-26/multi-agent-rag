@@ -26,3 +26,38 @@ multi-agent-rag/
 ├── frontend.py           # Streamlit web interface with live agent trace metrics
 ├── Dockerfile            # Container setup for the FastAPI service
 └── requirements.txt
+```
+
+## Tech Stack
+
+* **Orchestration & LLM:** LangGraph, LangChain, Google Gemini API
+* **Retrieval:** FAISS, Rank-BM25, Hugging Face Sentence-Transformers
+* **Backend & UI:** FastAPI, Uvicorn, Streamlit, PyPDF
+* **Deployment:** Docker, Streamlit Community Cloud
+
+## Running Locally
+
+1. **Clone the repository and set up a virtual environment:**
+   ```bash
+   git clone [https://github.com/Sagar-Uppal-26/multi-agent-rag.git](https://github.com/Sagar-Uppal-26/multi-agent-rag.git)
+   cd multi-agent-rag
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+
+2. **Configure your API key:**
+   Create a `.env` file in the root directory:
+   ```env
+   GOOGLE_API_KEY=your_api_key_here
+   ```
+
+3. **Start the application:**
+   * **Streamlit UI:**
+     ```bash
+     streamlit run frontend.py
+     ```
+   * **FastAPI Backend (optional standalone API):**
+     ```bash
+     uvicorn app.main:app --reload
+     ```
